@@ -12,21 +12,18 @@ import android.widget.Toast;
 
 public class activity2 extends AppCompatActivity {
 
-    TextView txtName,txtPassword, txtEmail;
+    TextView txtEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity2);
-        txtName = findViewById(R.id.tvName);
-        txtPassword = findViewById(R.id.tvPassword);
+        txtEmail = findViewById(R.id.etEmail);
     }
 
     public void onDisplay(View v){
         SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        txtName.setText(sp.getString("user", ""));
-        txtPassword.setText(sp.getString("pwd", ""));
-        Toast.makeText(this,"eml", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, sp.getString("eml", ""), Toast.LENGTH_SHORT).show();
     }
 
     public void onReturn (View v){
